@@ -26,7 +26,13 @@ In your Tinybird Workspace, create a new BigQuery Data Source from that BQ table
 
 Let's do this step first cause the backfill may take a bit longer.
 
-TBD.
+First, let's create a Data Source from this small [parquet file](./aux/ecom_events.parquet) we have as sample. Just drag and drop the file into the Tinybird UI. You can adjust data types, Sortng Key...
+
+Now that the data source is created, we will ingest some bigger parquets from GCS.
+
+Copy your admin token —or a new one with append rights to your newly created _ecom_events_ data source—, edit the [backfill_gcs.sh](./aux/backfill_gcs.sh) script, and run it.
+
+Note: for private files, or to ingest every time there are new files in the bucket, you can follow the [Ingest from GCS guide](https://www.tinybird.co/docs/guides/ingest-from-google-gcs)
 
 ### Send data from Pub/Sub
 
@@ -100,6 +106,7 @@ Edit a pipe that ends in an endpoint and send it back to the Workspace with `tb 
 
 ## Extra: what we left outside the workshop
 
+- [Apigee](https://www.tinybird.co/docs/publish/api-gateways.html#google-cloud-apigee)
 - [Kafka connector](https://www.tinybird.co/docs/ingest/kafka)
 - [Snowflake connector](https://www.tinybird.co/docs/ingest/snowflake), very similar to BQ.
 - [Tokens](https://www.tinybird.co/docs/concepts/auth-tokens)
