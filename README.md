@@ -103,6 +103,27 @@ tb pull --auto
 
 Edit a pipe that ends in an endpoint and send it back to the Workspace with `tb push`.
 
+### Push some resources to feed a dashboard
+
+Go to the branch called _chart-branch_ and copy its content —/pipes, /datasources, and /endpoints— into your data project.
+
+```bash
+git checkout chart-branch
+cp -r ./data-project/pipes ./pipes
+cp -r ./data-project/datasources ./datasources
+cp -r ./data-project/endpoints ./endpoints
+```
+
+Push the resources.
+
+```bash
+tb push pipes/events_by_*.pipe --push-deps --populate
+tb push endpoints/api_*.pipe
+```
+
+Get your _dashboard_ token, go to this [webpage](https://ecommerce-svelte-tremor-dashboard.vercel.app/), and paste it in the Token input. You can start playing with the filters, hours...
+
+Note we are assuming that the GCS Data Source is called prods, and some types may mismatch. To see the demo fully working you can check this [repo](https://github.com/tinybirdco/ecommerce-svelte).
 
 ## Extra: what we left outside the workshop
 
