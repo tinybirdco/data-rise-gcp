@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 TB_HOST=<region:api.tinybird.co|api.us-east.tinybird.co>
 TB_TOKEN=<your token with append rights to DS>
 DATA_SOURCE_NAME=ecom_events
