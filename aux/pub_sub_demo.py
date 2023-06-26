@@ -21,7 +21,7 @@ publisher = pubsub_v1.PublisherClient()
 topic_path = publisher.topic_path(project_id, topic_id)
 
 while True:
-    product_id = random.choice(prods)
+    product_id = random.choice(products)
     units = random.randrange(1, 3, 1)
     event_type = random.choice(event_types)
     event = {
